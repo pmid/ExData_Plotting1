@@ -4,8 +4,11 @@ if (!file.exists("data")) {
 }
 if (!file.exists("data/household_power_consumption.zip")) {
   fileurl  <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-  #add method = "curl" for mac
+  
   download.file(fileurl, destfile="data/household_power_consumption.zip")
+  # mac requires method = "curl" for https download
+  #download.file(fileurl, destfile="data/household_power_consumption.zip", method = "curl")
+  
   unzip("data/household_power_consumption.zip", exdir = "data")
 }
 
